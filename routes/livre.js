@@ -9,7 +9,7 @@ var router = express.Router();
     //GET detail livre
         router.get('/:id', controllerLivre.livre_detail);
 
-    //GET liste exemplaires d'un livre
+   /* //GET liste exemplaires d'un livre
         router.get('/:id/exemplaire', controllerLivre.livre_list_exemplaire);
 
     //GET detail d'un exemplaire
@@ -20,5 +20,5 @@ var router = express.Router();
 
     //POST ajout d'un exemplaire de livre
         router.post('/:id/exemplaire', controllerLivre.livre_ajout_exemplaire);
-
+*/
 module.exports = router;

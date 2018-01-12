@@ -1,5 +1,11 @@
-doctype html
-html
+extends ../node_modules/pug-bootstrap/_bootstrap
+append styles
+    // Bootstrap theme
+    +bootswatch("paper")
+    // Custom styles for this template
+    link(href='../stylesheets/theme.css', rel='stylesheet')
+
+block body
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')

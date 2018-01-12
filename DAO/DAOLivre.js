@@ -5,7 +5,7 @@ class DAOLivre{
 
     constructor(){
         this._client = new Client({
-            connectionString : 'postgres://bobet:bobet@192.168.222.86:5432/biblio'
+            connectionString : 'postgres://lemeitour:lemeitour@192.168.222.86:5432/biblio'
         });
 
         this._client.connect(function (err){
@@ -34,6 +34,24 @@ class DAOLivre{
                 console.log(lesLivres.length);
                 console.log(lesLivres[0].titre);
                 cb(lesLivres);
+            }
+        });
+    };
+    getLeLivre(unId, cb){
+
+        const query = {
+            name: 'fetch-one-livre',
+            text: 'SELECT * FROM livre where idlivre = $1 ',
+            values: [unId]
+        };
+
+        this._client.query(query, function (err, result) {
+            if (err) {
+                console.log(err.stack);
+            } else {
+                let LeLivre;
+                LeLivre = new Livre(unId, result.rows[0]['titre'], result.rows[0]['resume']);
+                cb(LeLivre);
             }
         });
     };

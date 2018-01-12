@@ -1,8 +1,5 @@
 class Exemplaire{
 
-    numero;
-    statut;
-    dateRetour;
 
     constructor(unNumero, unStatut, uneDateRetour){
         this.numero = unNumero;
